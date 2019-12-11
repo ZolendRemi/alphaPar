@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+{% block title %}Log in AlphaPar{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href={{ asset('css/login.css') }}>
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row mt-5">
+            <div class="col-4"></div>
+            <div class="col-4 bod-log">
+                <div class="row">
+                    <div class="col-12 p-3">
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <span class="h3">Welcome to AlphaPar</span>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col text-center">
+                                <span class="h4">Log you in !</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-3 mt-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Username</span>
+                                    </div>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Password</span>
+                                    </div>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-2"></div>
+                                    <div class="col-8">
+                                        <div class="row">
+                                            <div class="col text-center">
+                                                <a href="" class="btn btn-danger btn-block">Log In</a>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col text-center">
+                                                <a href="" class="btn btn-secondary btn-block">Register</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col text-center">
+                                <a href="" class="small">I forgot my password ...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

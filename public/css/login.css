@@ -1,0 +1,9 @@
+.bod-log{
+    border: #8d0000 solid 1px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 12px #aaaaaa;
+}
+
+.bor-2-black{
+    border: black solid 2px;
+}
