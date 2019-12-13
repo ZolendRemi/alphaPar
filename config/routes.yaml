@@ -1,3 +1,7 @@
-index:
+login:
     path: /
     controller: App\Controller\LoginController::index
+
+logout:
+    path: /logout
+    controller: App\Controller\LoginController::logout
