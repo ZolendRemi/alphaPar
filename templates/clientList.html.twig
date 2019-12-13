@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+{% block title %}Log in AlphaPar{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href={{ asset('css/login.css') }}>
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Client list</h1>
+            </div>
+        </div>
+        <div class="row mb-5 mt-3">
+            <div class="col-12">
+                <a href="{{ path('homepage') }}" class="btn btn-secondary float-left mr-3">Back</a>
+                <a href="{{ path('clientCreateView') }}" class="btn btn-primary float-right mr-3">Create a client</a>
+            </div>
+        </div>
+        {% if clients|length is empty %}
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">Aucun clients en base</h1>
+                </div>
+            </div>
+        {% else %}
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Firstname</th>
+                    <th class="text-center">Lastname</th>
+                    <th class="text-center">E-Mail</th>
+                    <th class="text-center">Address</th>
+                    <th class="text-center">City</th>
+                    <th class="text-center">Modify</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for client in clients %}
+                    <tr>
+                        <td>{{ client.id }}</td>
+                        <td>{{ client.firstname }}</td>
+                        <td>{{ client.lastname }}</td>
+                        <td>{{ client.email }}</td>
+                        <td>{{ client.address }}</td>
+                        <td>{{ client.city }}</td>
+                        <td><a href="" class="btn btn-primaty btn-block">Modifier</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

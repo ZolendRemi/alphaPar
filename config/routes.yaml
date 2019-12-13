@@ -1,7 +1,19 @@
-login:
+homepage:
     path: /
+    controller: App\Controller\HomepageController::index
+
+login:
+    path: /login
     controller: App\Controller\LoginController::index
 
 logout:
     path: /logout
     controller: App\Controller\LoginController::logout
+
+clientList:
+    path: /client/list
+    controller: App\Controller\ClientController::listClients
+
+clientCreateView:
+    path: /client/create
+    controller: App\Controller\ClientController::createFormView
