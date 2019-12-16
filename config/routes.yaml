@@ -12,8 +12,16 @@ logout:
 
 clientList:
     path: /client/list
-    controller: App\Controller\ClientController::listClients
+    controller: App\Controller\ClientController::list
 
-clientCreateView:
+clientCreate:
     path: /client/create
-    controller: App\Controller\ClientController::createFormView
+    controller: App\Controller\ClientController::create
+    methods: GET|POST
+
+clientModify:
+    path: /client/modify/{id}
+    controller: App\Controller\ClientController::modify
+    methods: GET|POST
+    requirements:
+        id: '\d+'

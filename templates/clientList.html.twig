@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Log in AlphaPar{% endblock %}
+{% block title %}AlphaPar - Client List{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href={{ asset('css/login.css') }}>
@@ -14,7 +14,7 @@
         <div class="row mb-5 mt-3">
             <div class="col-12">
                 <a href="{{ path('homepage') }}" class="btn btn-secondary float-left mr-3">Back</a>
-                <a href="{{ path('clientCreateView') }}" class="btn btn-primary float-right mr-3">Create a client</a>
+                <a href="{{ path('clientCreate') }}" class="btn btn-primary float-right mr-3">Create a client</a>
             </div>
         </div>
         {% if clients|length is empty %}
@@ -24,34 +24,35 @@
                 </div>
             </div>
         {% else %}
-        <div class="row">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th class="text-center">#</th>
-                    <th class="text-center">Firstname</th>
-                    <th class="text-center">Lastname</th>
-                    <th class="text-center">E-Mail</th>
-                    <th class="text-center">Address</th>
-                    <th class="text-center">City</th>
-                    <th class="text-center">Modify</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for client in clients %}
+            <div class="row">
+                <table class="table">
+                    <thead>
                     <tr>
-                        <td>{{ client.id }}</td>
-                        <td>{{ client.firstname }}</td>
-                        <td>{{ client.lastname }}</td>
-                        <td>{{ client.email }}</td>
-                        <td>{{ client.address }}</td>
-                        <td>{{ client.city }}</td>
-                        <td><a href="" class="btn btn-primaty btn-block">Modifier</a></td>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Firstname</th>
+                        <th class="text-center">Lastname</th>
+                        <th class="text-center">E-Mail</th>
+                        <th class="text-center">Address</th>
+                        <th class="text-center">City</th>
+                        <th class="text-center">Modify Client</th>
                     </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                    {% for client in clients %}
+                        <tr>
+                            <td>{{ client.id }}</td>
+                            <td>{{ client.firstname }}</td>
+                            <td>{{ client.lastname }}</td>
+                            <td>{{ client.email }}</td>
+                            <td>{{ client.address }}</td>
+                            <td>{{ client.city }}</td>
+                            <td><a href="{{ path('clientModify',{ id: client.id }) }}" class="btn btn-primary btn-block">Modify</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         {% endif %}
     </div>
 {% endblock %}
