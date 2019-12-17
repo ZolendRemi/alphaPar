@@ -33,6 +33,11 @@ class Invoice
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $ref;
+
     public function __construct()
     {
         $this->line = new ArrayCollection();
@@ -94,6 +99,18 @@ class Invoice
     public function setStatus(?Status $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getRef(): ?string
+    {
+        return $this->ref;
+    }
+
+    public function setRef(string $ref): self
+    {
+        $this->ref = $ref;
 
         return $this;
     }

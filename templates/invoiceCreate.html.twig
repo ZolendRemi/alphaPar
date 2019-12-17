@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+{% block title %}AlphaPar - Invoice Create Form{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href={{ asset('css/login.css') }}>
+{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Invoice Create Form</h1>
+            </div>
+        </div>
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="row mb-3 mt-3">
+                    <div class="col-12">
+                        <a href="{{ path('invoiceList') }}" class="btn btn-secondary float-left">Return</a>
+                        <button type="submit" class="btn btn-primary float-right">Submit</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Reference</span>
+                            </div>
+                            {{ form_widget(form.ref) }}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Client</span>
+                            </div>
+                            {{ form_widget(form.client) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="input-group  mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Status</span>
+                            </div>
+                            {{ form_widget(form.status) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary float-right">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

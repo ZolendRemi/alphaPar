@@ -1,18 +1,24 @@
 homepage:
     path: /
     controller: App\Controller\HomepageController::index
+    methods: GET
+
 
 login:
     path: /login
     controller: App\Controller\LoginController::index
+    methods: GET
+
 
 logout:
     path: /logout
     controller: App\Controller\LoginController::logout
+    methods: GET
 
 clientList:
     path: /client/list
     controller: App\Controller\ClientController::list
+    methods: GET
 
 clientCreate:
     path: /client/create
@@ -25,3 +31,20 @@ clientModify:
     methods: GET|POST
     requirements:
         id: '\d+'
+
+invoiceList:
+    path: /invoice/list
+    controller: App\Controller\InvoiceController:list
+    methods: GET
+
+invoiceInfo:
+    path: /invoice/info/{id}
+    controller: App\Controller\ClientController::info
+    methods: GET
+    requirements:
+        id: '\d+'
+
+invoiceCreate:
+    path: /invoice/create
+    controller: App\Controller\InvoiceController::create
+    methods: GET|POST
