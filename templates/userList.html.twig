@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block title %}AlphaPar - Users List{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>Users list</h1>
+            </div>
+        </div>
+        <div class="row mb-5 mt-3">
+            <div class="col-12">
+                <a href="{{ path('homepage') }}" class="btn btn-secondary float-left mr-3">Back</a>
+                <a href="{{ path('userCreate') }}" class="btn btn-primary float-right mr-3">Create an User</a>
+            </div>
+        </div>
+        {% if users|length is empty %}
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center">No User in database</h1>
+                </div>
+            </div>
+        {% else %}
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Firstname</th>
+                        <th class="text-center">Lastname</th>
+                        <th class="text-center">E-Mail</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td class="text-center">{{ user.id }}</td>
+                            <td class="text-center">{{ user.firstname }}</td>
+                            <td class="text-center">{{ user.lastname }}</td>
+                            <td class="text-center">{{ user.email }}</td>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

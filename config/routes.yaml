@@ -44,3 +44,18 @@ invoiceCreate:
     path: /invoice/create
     controller: App\Controller\InvoiceController::create
     methods: GET|POST
+
+user:
+    path: /user
+    controller: App\Controller\UserController::list
+    methods: GET
+
+userList:
+    path: /user/list
+    controller: App\Controller\UserController::list
+    methods: GET
+
+userCreate:
+    path: /user/create
+    controller: App\Controller\UserController::create
+    methods: GET|POST

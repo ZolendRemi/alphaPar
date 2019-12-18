@@ -19,15 +19,28 @@ class User extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        $admin = new \App\Entity\User();
+        $admin->setLastname('Admin');
+        $admin->setFirstname('Admin');
+        $admin->setEmail("admin@alphapar.fr");
+        $admin->setPassword($this->passwordEncoder->encodePassword(
+            $admin,
+            'AsCrGb4&'
+        ));
+        $admin->setRoles(['ROLE_ADMIN', 'ROLE_USER']);
+
         $user = new \App\Entity\User();
-        $user->setEmail("remi.zolend@alphapar.fr");
+        $user->setLastname('Zeur');
+        $user->setFirstname('Iou');
+        $user->setEmail("iou.zeur@alphapar.fr");
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user,
-            'Tujer'
+            'BtDsHc5('
         ));
+        $user->setRoles(['ROLE_USER']);
 
+        $manager->persist($admin);
         $manager->persist($user);
         $manager->flush();
-
     }
 }

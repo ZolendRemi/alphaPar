@@ -22,9 +22,23 @@
             <div class="col-6 p-5">
                 <div class="row">
                     <div class="col-12">
-                        <a href="#" class="btn btn-primary btn-block">Manage Invoice</a>
+                        <a href="#" class="btn btn-primary btn-block">Manage Invoice (Beta)</a>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 p-5">
+                {% if is_granted('ROLE_ADMIN') %}
+                <div class="row">
+                    <div class="col-12">
+                        <a href="{{ path('userList') }}" class="btn btn-primary btn-block">User Table</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-6 p-5">
+
             </div>
         </div>
     </div>
