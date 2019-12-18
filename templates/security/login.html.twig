@@ -9,26 +9,46 @@
         <div class="row mt-5">
             <div class="col-4"></div>
             <div class="col-4 bod-log">
-                <div class="row">
-                    <div class="col-12 p-3">
-
-                        <div class="row">
-                            <div class="col text-center">
-                                <span class="h3">Welcome to AlphaPar</span>
-                            </div>
+                <div class="col-12 p-3">
+                    <div class="row">
+                        <div class="col text-center">
+                            <span class="h3">Welcome to AlphaPar</span>
                         </div>
-                        <div class="row mt-2">
-                            <div class="col text-center">
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col text-center">
+                            {% if app.user is not null %}
+                                <div class="row">
+                                    <div class="col">
+                                        <span class="h4">You are logged with {{ app.user.email }}</span>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col">
+                                        <a class="btn btn-sm btn-outline-danger" href="{{ path('logout') }}">Log out</a>
+                                    </div>
+                                </div>
+                            {% else %}
                                 <span class="h4">Log you in !</span>
-                            </div>
+                            {% endif %}
                         </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col text-center">
+                            {% if error is not null %}
+                                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <form action="{{ path('login') }}" method="post">
                         <div class="row">
                             <div class="col">
                                 <div class="input-group mb-3 mt-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Username</span>
                                     </div>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" autofocus id="email" name="email"
+                                           value="{{ last_username }}"/>
                                 </div>
                             </div>
                         </div>
@@ -38,10 +58,13 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Password</span>
                                     </div>
-                                    <input type="password" class="form-control">
+                                    <input type="password" class="form-control" id="password" name="password"/>
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}"
+                        >
                         <hr>
                         <div class="row">
                             <div class="col">
@@ -50,7 +73,8 @@
                                     <div class="col-8">
                                         <div class="row">
                                             <div class="col text-center">
-                                                <a href="" class="btn btn-danger btn-block">Log In</a>
+                                                <button type="submit" class="btn btn-danger btn-block">Log In
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
@@ -69,13 +93,10 @@
                                 <a href="" class="small">I forgot my password ...</a>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-            <div class="col-4"></div>
         </div>
+        <div class="col-4"></div>
     </div>
-{% endblock %}
-{% block javascripts %}
-
 {% endblock %}

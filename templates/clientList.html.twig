@@ -40,13 +40,13 @@
                     <tbody>
                     {% for client in clients %}
                         <tr>
-                            <td>{{ client.id }}</td>
-                            <td>{{ client.firstname }}</td>
-                            <td>{{ client.lastname }}</td>
-                            <td>{{ client.email }}</td>
-                            <td>{{ client.address }}</td>
-                            <td>{{ client.city }}</td>
-                            <td><a href="{{ path('clientModify',{ id: client.id }) }}" class="btn btn-primary btn-block">Modify</a>
+                            <td class="text-center">{{ client.id }}</td>
+                            <td class="text-center">{{ client.firstname }}</td>
+                            <td class="text-center">{{ client.lastname }}</td>
+                            <td class="text-center">{{ client.email }}</td>
+                            <td class="text-center">{{ client.address }}</td>
+                            <td class="text-center">{{ client.city }}</td>
+                            <td class="text-center"><a href="{{ path('clientModify',{ id: client.id }) }}" class="btn btn-primary btn-block">Modify</a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -55,7 +55,4 @@
             </div>
         {% endif %}
     </div>
-{% endblock %}
-{% block javascripts %}
-
 {% endblock %}
