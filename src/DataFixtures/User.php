@@ -22,7 +22,7 @@ class User extends Fixture
         $admin = new \App\Entity\User();
         $admin->setLastname('Admin');
         $admin->setFirstname('Admin');
-        $admin->setEmail("admin@alphapar.fr");
+        $admin->setEmail("admin@alphapar.local");
         $admin->setPassword($this->passwordEncoder->encodePassword(
             $admin,
             'AsCrGb4&'
@@ -32,7 +32,7 @@ class User extends Fixture
         $user = new \App\Entity\User();
         $user->setLastname('Zeur');
         $user->setFirstname('Iou');
-        $user->setEmail("iou.zeur@alphapar.fr");
+        $user->setEmail("iou.zeur@alphapar.local");
         $user->setPassword($this->passwordEncoder->encodePassword(
             $user,
             'BtDsHc5('
